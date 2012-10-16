@@ -1,0 +1,49 @@
+<h1>Listing sources</h1>
+
+<table>
+  <tr>
+    <th>Author</th>
+    <th>Pub date</th>
+    <th>Ref date</th>
+    <th>Title</th>
+    <th>Title2</th>
+    <th>Website</th>
+    <th>Volume</th>
+    <th>Edition</th>
+    <th>Pub place</th>
+    <th>Pub house</th>
+    <th>Magazine num</th>
+    <th>Pages</th>
+    <th>Ref type</th>
+    <th>User</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @sources.each do |source| %>
+  <tr>
+    <td><%= source.author %></td>
+    <td><%= source.pub_date %></td>
+    <td><%= source.ref_date %></td>
+    <td><%= source.title %></td>
+    <td><%= source.title2 %></td>
+    <td><%= source.website %></td>
+    <td><%= source.volume %></td>
+    <td><%= source.edition %></td>
+    <td><%= source.pub_place %></td>
+    <td><%= source.pub_house %></td>
+    <td><%= source.magazine_num %></td>
+    <td><%= source.pages %></td>
+    <td><%= source.ref_type %></td>
+    <td><%= source.user %></td>
+    <td><%= link_to 'Show', source %></td>
+    <td><%= link_to 'Edit', edit_source_path(source) %></td>
+    <td><%= link_to 'Destroy', source, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Source', new_source_path %>

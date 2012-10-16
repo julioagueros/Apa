@@ -1,0 +1,73 @@
+<%= form_for(@source) do |f| %>
+  <% if @source.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@source.errors.count, "error") %> prohibited this source from being saved:</h2>
+
+      <ul>
+      <% @source.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :author %><br />
+    <%= f.text_field :author %>
+  </div>
+  <div class="field">
+    <%= f.label :pub_date %><br />
+    <%= f.date_select :pub_date %>
+  </div>
+  <div class="field">
+    <%= f.label :ref_date %><br />
+    <%= f.date_select :ref_date %>
+  </div>
+  <div class="field">
+    <%= f.label :title %><br />
+    <%= f.text_field :title %>
+  </div>
+  <div class="field">
+    <%= f.label :title2 %><br />
+    <%= f.text_field :title2 %>
+  </div>
+  <div class="field">
+    <%= f.label :website %><br />
+    <%= f.text_field :website %>
+  </div>
+  <div class="field">
+    <%= f.label :volume %><br />
+    <%= f.text_field :volume %>
+  </div>
+  <div class="field">
+    <%= f.label :edition %><br />
+    <%= f.text_field :edition %>
+  </div>
+  <div class="field">
+    <%= f.label :pub_place %><br />
+    <%= f.text_field :pub_place %>
+  </div>
+  <div class="field">
+    <%= f.label :pub_house %><br />
+    <%= f.text_field :pub_house %>
+  </div>
+  <div class="field">
+    <%= f.label :magazine_num %><br />
+    <%= f.text_field :magazine_num %>
+  </div>
+  <div class="field">
+    <%= f.label :pages %><br />
+    <%= f.text_field :pages %>
+  </div>
+  <div class="field">
+    <%= f.label :ref_type %><br />
+    <%= f.text_field :ref_type %>
+  </div>
+  <div class="field">
+    <%= f.label :user %><br />
+    <%= f.text_field :user %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

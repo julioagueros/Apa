@@ -1,0 +1,23 @@
+class CreateSources < ActiveRecord::Migration
+  def change
+    create_table :sources do |t|
+      t.string :author
+      t.date :pub_date
+      t.date :ref_date
+      t.string :title
+      t.string :title2
+      t.string :website
+      t.string :volume
+      t.string :edition
+      t.string :pub_place
+      t.string :pub_house
+      t.string :magazine_num
+      t.string :pages
+      t.integer :ref_type
+      t.references :user
+
+      t.timestamps
+    end
+    add_index :sources, :user_id
+  end
+end
