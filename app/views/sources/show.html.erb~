@@ -67,7 +67,7 @@
 
 <p>
   <b>User:</b>
-  <%= @source.user_id %>
+  <%= @source.user %>
 </p>
 
 

@@ -16,7 +16,7 @@
     <td><%= source.author %></td>
     <td><%= source.pub_date %></td>
     <td><%= source.ref_date %></td>
-    <td><%= source.title %></td>
+    <td><%= source.title1 %></td>
     <td><%= link_to 'Show', source %></td>
     <td><%= link_to 'Edit', edit_source_path(source) %></td>
     <td><%= link_to 'Destroy', source, method: :delete, data: { confirm: 'Are you sure?' } %></td>

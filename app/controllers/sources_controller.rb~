@@ -33,7 +33,7 @@ class SourcesController < ApplicationController
   def new
     @source = Source.new
     @userId = session[:user_id]
-    @source.ref_type = params[:type]
+    @ref_type = params[:type]
 
     respond_to do |format|
       format.html # new.html.erb

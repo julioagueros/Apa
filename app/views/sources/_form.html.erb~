@@ -1,3 +1,4 @@
+                                                                   
 <%= form_for(@source) do |f| %>
   <% if @source.errors.any? %>
     <div id="error_explanation">
@@ -12,62 +13,104 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :author %><br />
-    <%= f.text_field :author %>
+    <%= f.label :Author %><br />
+    <%= f.text_field :author , :required => true, :placeholder => 'Lastname, First name letter'%>
+  </div>
+  
+  
+  <div class="field">
+	<% if @source.ref_type == 1 %>	    
+    <%= f.label :Book_title %><br />
+   <% elsif @source.ref_type == 2 %>	   
+    <%= f.label :Chapter_title %><br />
+   <% elsif @source.ref_type == 3 %>
+    <%= f.label :Thesis_title %><br />
+   <% elsif (@source.ref_type == 4) || (@source.ref_type == 5) || (@source.ref_type == 6) %>
+    <%= f.label :Article_title %><br />
+   <% else @source.ref_type == 7 %>
+    <%= f.label :Document_title %><br />
+   <% end %>    
+    <%= f.text_field :title, :required => true, :placeholder => 'The title here' %>
+  </div>
+
+<% if @source.ref_type != 1 && @source.ref_type != 7  %>
+  <div class="field">
+   <% if @source.ref_type == 2 %>
+    <%= f.label :Book_title %><br />
+   <% elsif @source.ref_type == 3 %>
+    <%= f.label :Thesis_academic_degree %><br />
+   <% elsif @source.ref_type == 4 or @source.ref_type == 5 %>
+    <%= f.label :Journal_title %><br />
+   <% elsif @source.ref_type == 6 %>
+    <%= f.label :Newspaper_title %><br />
+	<% end %>
+    <%= f.text_field :title2, :required => true, :placeholder => 'The title here' %>
+  </div>
+ <% end %>
+  
+  
+  <div class="field">
+    <%= f.label :Publication_date %><br />
+    <%= f.text_field :pub_year, :size => '4', :required => 'false', :placeholder => 'yyyy', :pattern => '(?:(19|20)[0-9]{2})'%>
+    <%= f.text_field :pub_month, :size => '2', :required => 'false', :placeholder => 'mm', :pattern => '(?:0[1-9]|1[0-2])'%>
+    <%= f.text_field :pub_day, :size => '2', :required => 'false', :placeholder => 'dd', :pattern => '(?:0[1-9]|1[0-9]|2[0-9])'%>
+  </div> 
+
+<% if (@source.ref_type == 1) || (@source.ref_type == 2) || (@source.ref_type == 3) %>
+  <div class="field">
+    <%= f.label :Edition %><br />
+    <%= f.text_field :edition, :required => true, :placeholder => 'First Edition' %>
+  </div>
+
+  <div class="field">
+    <%= f.label :Publication_house %><br />
+    <%= f.text_field :pub_house, :required => true, :placeholder => 'Editorial Costa Rica' %>
   </div>
   <div class="field">
-    <%= f.label :pub_date %><br />
-    <%= f.date_select :pub_date %>
+    <%= f.label :Publication_place %><br />
+    <%= f.text_field :pub_place, :required => false, :placeholder => 'San José, Costa Rica' %>
   </div>
+<% end %>
+
+<% if (@source.ref_type == 4) || (@source.ref_type == 5) || (@source.ref_type == 6) %>
   <div class="field">
-    <%= f.label :ref_date %><br />
-    <%= f.date_select :ref_date %>
+    <%= f.label :Volume %><br />
+    <%= f.text_field :volume ,  :required => false, :placeholder => 'Volume 2'%>
   </div>
+  
   <div class="field">
-    <%= f.label :title %><br />
-    <%= f.text_field :title %>
+    <%= f.label :magazine_number %><br />
+    <%= f.text_field :magazine_num,  :required => false, :placeholder => 'N° 2' %>
   </div>
+  
   <div class="field">
-    <%= f.label :title2 %><br />
-    <%= f.text_field :title2 %>
+    <%= f.label :Pages %><br />
+    <%= f.text_field :pages, :required => true, :placeholder => '8-10' %>
   </div>
+<% end %>
+
   <div class="field">
-    <%= f.label :website %><br />
-    <%= f.text_field :website %>
+    <%= f.label :Reference_date %><br />
+    <%= f.text_field :ref_year, :size => '4', :required => 'false', :placeholder => 'yyyy', :pattern => '(?:(19|20)[0-9]{2})'%>
+    <%= f.text_field :ref_month, :size => '2', :required => 'false', :placeholder => 'mm', :pattern => '(?:0[1-9]|1[0-2])'%>
+    <%= f.text_field :ref_day, :size => '2', :required => 'false', :placeholder => 'dd', :pattern => '(?:0[1-9]|1[0-9]|2[0-9])'%>
   </div>
+ 
+<% if @source.ref_type == 7  %> 
   <div class="field">
-    <%= f.label :volume %><br />
-    <%= f.text_field :volume %>
+    <%= f.label :Website %><br />
+    <%= f.text_field :website,  :required => true, :placeholder => 'http//:www.dominioreferencias.com' %>
   </div>
-  <div class="field">
-    <%= f.label :edition %><br />
-    <%= f.text_field :edition %>
-  </div>
-  <div class="field">
-    <%= f.label :pub_place %><br />
-    <%= f.text_field :pub_place %>
-  </div>
-  <div class="field">
-    <%= f.label :pub_house %><br />
-    <%= f.text_field :pub_house %>
-  </div>
-  <div class="field">
-    <%= f.label :magazine_num %><br />
-    <%= f.text_field :magazine_num %>
-  </div>
-  <div class="field">
-    <%= f.label :pages %><br />
-    <%= f.text_field :pages %>
-  </div>
-  <div class="field">
-    <%= f.label :ref_type %><br />
-    <%= f.text_field :ref_type %>
-  </div>
-  <div class="field">
-    <%= f.label :user %><br />
-    <%= f.text_field :user %>
-  </div>
+<% end %>
+
+<div class="field">
+    <%= f.label :Usuario %><br />
+    <%= f.hidden_field :user_id,  :value => @userId %>
+</div>
+
+
+  
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit :value => 'Create Reference' %>
   </div>
 <% end %>
