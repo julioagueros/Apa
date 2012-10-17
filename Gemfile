@@ -10,6 +10,17 @@ gem 'pg'
 # Para la encripción
 gem 'bcrypt-ruby', :require => 'bcrypt'
 
+#gem funcional para crear pdfs
+gem "wicked_pdf"
+
+
+#para los pdfs
+#gem "pdfkit" 
+#group :development do
+  #gem "wkhtmltopdf-binary", "~> 0.9.5.3"
+#end
+
+
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do

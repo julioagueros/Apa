@@ -8,6 +8,12 @@ class SourcesController < ApplicationController
     @sources = Source.where(["user_id = ?", session[:user_id]]).all
     respond_to do |format|
       format.html # index.html.erb
+		#para generar un archivo .pdf      
+      format.pdf do
+            render :pdf => "APA References",
+                   :template => 'sources/index.html.erb'
+
+    		end
       format.json { render json: @sources }
     end
   end
@@ -20,6 +26,12 @@ class SourcesController < ApplicationController
     if (@source.user_id == session[:user_id])
        respond_to do |format|
          format.html # show.html.erb
+         #para generar un archivo .pdf
+         format.pdf do
+            render :pdf => "APA References",
+                   :template => 'sources/show.html.erb'
+
+    		end
          format.json { render json: @source }
        end
     else

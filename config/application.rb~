@@ -62,6 +62,6 @@ module AplicacionAPA
     config.assets.version = '1.0'
 	
 	#configuración del PDFKit
-    #config.middleware.use PDFKit::Middleware
+    config.middleware.use PDFKit::Middleware
   end
 end
