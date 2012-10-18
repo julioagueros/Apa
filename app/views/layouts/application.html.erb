@@ -21,6 +21,9 @@
     <%= content_tag :div, msg, :id => "flash#{name}" %>
   <% end %>
 <%= yield %>
-
+<div id="nav thru site">
+<h1> Navegation </h1>
+ <b><%= link_to "View Sources", sources_path %></b>
+</div>
 </body>
 </html>

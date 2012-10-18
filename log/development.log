@@ -21012,3 +21012,212 @@ Served asset /jquery_ujs.js - 304 Not Modified (0ms)
 
 Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-10-18 07:03:47 -0600
 Served asset /application.js - 304 Not Modified (2ms)
+
+
+Started GET "/sources/new?type=1" for 127.0.0.1 at 2012-10-18 07:43:26 -0600
+Processing by SourcesController#new as HTML
+  Parameters: {"type"=>"1"}
+  [1m[35mUser Load (0.8ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 7]]
+  Rendered sources/_form.html.erb (17.2ms)
+  Rendered sources/new.html.erb within layouts/application (39.4ms)
+Completed 200 OK in 205ms (Views: 193.2ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-10-18 07:43:26 -0600
+Served asset /application.css - 304 Not Modified (43ms)
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2012-10-18 07:43:26 -0600
+Served asset /users.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/sources.css?body=1" for 127.0.0.1 at 2012-10-18 07:43:26 -0600
+Served asset /sources.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/sessions.css?body=1" for 127.0.0.1 at 2012-10-18 07:43:26 -0600
+Served asset /sessions.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2012-10-18 07:43:26 -0600
+Served asset /scaffolds.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-10-18 07:43:26 -0600
+Served asset /jquery.js - 304 Not Modified (8ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-10-18 07:43:26 -0600
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-10-18 07:43:26 -0600
+Served asset /application.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2012-10-18 07:43:26 -0600
+Served asset /users.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/sources.js?body=1" for 127.0.0.1 at 2012-10-18 07:43:26 -0600
+Served asset /sources.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/sessions.js?body=1" for 127.0.0.1 at 2012-10-18 07:43:26 -0600
+Served asset /sessions.js - 304 Not Modified (0ms)
+
+
+Started GET "/sources" for 127.0.0.1 at 2012-10-18 07:43:30 -0600
+Processing by SourcesController#index as HTML
+  [1m[36mUser Load (4.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 7]]
+  [1m[35mSource Load (7.6ms)[0m  SELECT "sources".* FROM "sources" WHERE (user_id = 7)
+  Rendered sources/index.html.erb within layouts/application (37.4ms)
+Completed 200 OK in 203ms (Views: 187.7ms | ActiveRecord: 11.8ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-10-18 07:43:30 -0600
+Served asset /application.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-10-18 07:43:30 -0600
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/sessions.css?body=1" for 127.0.0.1 at 2012-10-18 07:43:30 -0600
+Served asset /sessions.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/sources.css?body=1" for 127.0.0.1 at 2012-10-18 07:43:30 -0600
+Served asset /sources.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2012-10-18 07:43:30 -0600
+Served asset /scaffolds.css - 304 Not Modified (4ms)
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2012-10-18 07:43:30 -0600
+Served asset /users.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/sessions.js?body=1" for 127.0.0.1 at 2012-10-18 07:43:30 -0600
+Served asset /sessions.js - 304 Not Modified (3ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-10-18 07:43:30 -0600
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-10-18 07:43:30 -0600
+Served asset /application.js - 304 Not Modified (2ms)
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2012-10-18 07:43:30 -0600
+Served asset /users.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/sources.js?body=1" for 127.0.0.1 at 2012-10-18 07:43:30 -0600
+Served asset /sources.js - 304 Not Modified (0ms)
+
+
+Started GET "/sources" for 127.0.0.1 at 2012-10-18 08:22:49 -0600
+Processing by SourcesController#index as HTML
+  [1m[36mUser Load (2.9ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 7]]
+  [1m[35mSource Load (8.1ms)[0m  SELECT "sources".* FROM "sources" WHERE (user_id = 7)
+  Rendered sources/index.html.erb within layouts/application (56.7ms)
+Completed 200 OK in 121ms (Views: 98.0ms | ActiveRecord: 11.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-10-18 08:22:50 -0600
+Served asset /application.css - 304 Not Modified (6ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-10-18 08:22:50 -0600
+Served asset /jquery.js - 304 Not Modified (5ms)
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2012-10-18 08:22:50 -0600
+Served asset /users.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/sources.css?body=1" for 127.0.0.1 at 2012-10-18 08:22:50 -0600
+Served asset /sources.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/sessions.css?body=1" for 127.0.0.1 at 2012-10-18 08:22:50 -0600
+Served asset /sessions.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2012-10-18 08:22:50 -0600
+Served asset /scaffolds.css - 304 Not Modified (9ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-10-18 08:22:50 -0600
+Served asset /jquery_ujs.js - 304 Not Modified (10ms)
+
+
+Started GET "/assets/sessions.js?body=1" for 127.0.0.1 at 2012-10-18 08:22:50 -0600
+Served asset /sessions.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2012-10-18 08:22:50 -0600
+Served asset /users.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/sources.js?body=1" for 127.0.0.1 at 2012-10-18 08:22:50 -0600
+Served asset /sources.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-10-18 08:22:50 -0600
+Served asset /application.js - 304 Not Modified (4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2012-10-18 08:23:21 -0600
+Processing by UsersController#new as HTML
+  Rendered users/_form.html.erb (12.9ms)
+  Rendered users/new.html.erb within layouts/application (31.3ms)
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 7]]
+Completed 200 OK in 263ms (Views: 261.2ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-10-18 08:23:21 -0600
+Served asset /application.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-10-18 08:23:21 -0600
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2012-10-18 08:23:21 -0600
+Served asset /users.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/sources.css?body=1" for 127.0.0.1 at 2012-10-18 08:23:21 -0600
+Served asset /sources.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/sessions.css?body=1" for 127.0.0.1 at 2012-10-18 08:23:21 -0600
+Served asset /sessions.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2012-10-18 08:23:21 -0600
+Served asset /scaffolds.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/sources.js?body=1" for 127.0.0.1 at 2012-10-18 08:23:21 -0600
+Served asset /sources.js - 304 Not Modified (18ms)
+
+
+Started GET "/assets/sessions.js?body=1" for 127.0.0.1 at 2012-10-18 08:23:21 -0600
+Served asset /sessions.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-10-18 08:23:21 -0600
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-10-18 08:23:21 -0600
+Served asset /application.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2012-10-18 08:23:21 -0600
+Served asset /users.js - 304 Not Modified (0ms)

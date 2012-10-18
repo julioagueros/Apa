@@ -30,8 +30,8 @@
 		<%= @source.author %> (<%= @source.pub_date %>). <%= @source.title %>. <i><%= @source.title2 %></i>. <%= @source.volume %>. (p <%= @source.pages %>)
 	<% end %>	
 <!-- Web-->		
-<% else %>
-	<%= @source.author %> (<%= @source.pub_date %>). <i><%= @source.title %></i>. <%= @source.title2 %>. Retrieved <%= @source.ref_date %>. From <%= @source.website %>
+<% else %>	
+	<%= @source.author %> (<%= @source.pub_date %>). <i><%= @source.title %></i>. Retrieved <%= @source.ref_date %>. From <%= @source.website %>
 <% end %>
 </p>
 

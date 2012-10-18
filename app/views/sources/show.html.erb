@@ -1,24 +1,24 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-<!-- Libros-->
+<!-- Formateando Libros-->
 <% if @source.ref_type == 1 %>
 	<% if @source.pub_place.blank?%>
 		<%= @source.author %> (<%= @source.pub_date %>). <i><%= @source.title %></i>. <%= @source.edition %>. <%= @source.pub_house %>
 	<% else %>
 		<%= @source.author %> (<%= @source.pub_date %>). <i><%= @source.title %></i>. <%= @source.edition %>. <%= @source.pub_place %>: <%= @source.pub_house %>
 	<% end %>
-<!-- Capítulos de libros-->
+<!-- Formateando Capítulos de libros-->
 <% elsif @source.ref_type == 2 %>	
 	<% if @source.pub_place.blank? %>
 		<%= @source.author %> (<%= @source.pub_date %>). <%= @source.title2 %>. <i><%= @source.title %></i>. (p <%= @source.pages %>). <%= @source.edition %>. <%= @source.pub_house %>
 	<% else %>
 		<%= @source.author %> (<%= @source.pub_date %>). <%= @source.title2 %>. <i><%= @source.title %></i>. (p <%= @source.pages %>). <%= @source.edition %>. <%= @source.pub_place %>: <%= @source.pub_house %>	
 	<% end %>
-<!-- Tesis-->
+<!-- Formateando Tesis-->
 <% elsif @source.ref_type == 3 %>	
 	<%= @source.author %> (<%= @source.pub_date %>). <i><%= @source.title %></i>. <%= @source.title2 %>. <%= @source.pub_place %>
-<!-- Artículos-->
+<!--Formateando Artículos-->
 <% elsif @source.ref_type == 4 || @source.ref_type == 5 || @source.ref_type == 6 %>	
 	<% if @source.volume.blank? && @source.magazine_num.blank? %>
 		<%= @source.author %> (<%= @source.pub_date %>). <%= @source.title %>. <i><%= @source.title2 %></i>. (p <%= @source.pages %>)
@@ -29,7 +29,7 @@
 	<% else %>
 		<%= @source.author %> (<%= @source.pub_date %>). <%= @source.title %>. <i><%= @source.title2 %></i>. <%= @source.volume %>. (p <%= @source.pages %>)
 	<% end %>	
-<!-- Web-->		
+<!-- Formateando Web-->		
 <% else %>	
 	<%= @source.author %> (<%= @source.pub_date %>). <i><%= @source.title %></i>. Retrieved <%= @source.ref_date %>. From <%= @source.website %>
 <% end %>

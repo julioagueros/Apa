@@ -4,7 +4,6 @@
   <tr>
     <th>Author(s)</th>
     <th>Publication date</th>
-    <th>Reference date</th>
     <th>Reference title</th>
     <th>Reference type</th>
     <th></th>
@@ -16,11 +15,10 @@
   <tr>
     <td><%= source.author %></td>
     <td><%= source.pub_date %></td>
-    <td><%= source.ref_date %></td>
     <td><%= source.title %></td>
     <td><%= source.ref_type %></td>
     <td><%= link_to 'Show', source %></td>
-     <td><%= link_to "PDF", :action => "show", :id => source, :format => :pdf %></td>
+     <td><%= link_to "Download PDF version", :action => "show", :id => source, :format => :pdf %></td>
     <td><%= link_to 'Edit', edit_source_path(source) %></td>
     <td><%= link_to 'Destroy', source, method: :delete, data: { confirm: 'Are you sure?' } %></td>
   </tr>
@@ -37,16 +35,16 @@
 <div>
 <strong>Printed documents</strong><br>
 <ol>
-<li><%= link_to "New Reference for books", new_source_path(:type => 1) %></li>
-<li><%= link_to "New Reference for book chapters' ", new_source_path(:type => 2) %></li>
-<li><%= link_to "New Reference for thesis", new_source_path(:type => 3) %></li>
-<li><%= link_to 'New Reference for journal articles', new_source_path(:type => 4) %></li>
-<li><%= link_to 'New Reference for scientist articles', new_source_path(:type => 5) %></li>
-<li><%= link_to 'New Reference for newspaper articles', new_source_path(:type => 6) %></li>
+<li><%= link_to "Create Reference for books", new_source_path(:type => 1) %></li>
+<li><%= link_to "Create Reference for book chapters ", new_source_path(:type => 2) %></li>
+<li><%= link_to "Create Reference for thesis", new_source_path(:type => 3) %></li>
+<li><%= link_to 'Create Reference for journal articles', new_source_path(:type => 4) %></li>
+<li><%= link_to 'Create Reference for scientist articles', new_source_path(:type => 5) %></li>
+<li><%= link_to 'Create Reference for newspaper articles', new_source_path(:type => 6) %></li>
 </ol>
 </div>
 <br>
 <div>
 <strong>Digital documents</strong><br>
-<ol><li><%= link_to 'New Reference for digital documents', new_source_path(:type => 7) %></li></ol>
+<ol><li><%= link_to 'Create Reference for digital documents', new_source_path(:type => 7) %></li></ol>
 </div>

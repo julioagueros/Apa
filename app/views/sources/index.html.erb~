@@ -6,6 +6,7 @@
     <th>Publication date</th>
     <th>Reference date</th>
     <th>Reference title</th>
+    <th>Reference type</th>
     <th></th>
     <th></th>
     <th></th>
@@ -17,6 +18,7 @@
     <td><%= source.pub_date %></td>
     <td><%= source.ref_date %></td>
     <td><%= source.title %></td>
+    <td><%= source.ref_type %></td>
     <td><%= link_to 'Show', source %></td>
      <td><%= link_to "PDF", :action => "show", :id => source, :format => :pdf %></td>
     <td><%= link_to 'Edit', edit_source_path(source) %></td>
