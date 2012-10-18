@@ -14,19 +14,25 @@
 
   <div class="field">
     <%= f.label :Author %><br />
-    <%= f.text_field :author , :required => true, :placeholder => 'Lastname, First name letter'%>
+    <%= f.text_field :author , :required => true, :placeholder => 'Lastname, First name letter.'%>
+    <label>If you need to write more than one author: Loks, G. , Alinsky, L. , PortmN, J.</label>
   </div>
   
-  
+  <!-- Indica el tipo de referencia que se definió en el index -->
   <div class="field">
+  <!-- Libros -->
 	<% if @source.ref_type == 1 %>	    
     <%= f.label :Book_title %><br />
+  <!-- Capítulos de libros -->
    <% elsif @source.ref_type == 2 %>	   
     <%= f.label :Chapter_title %><br />
+  <!-- Tesis -->
    <% elsif @source.ref_type == 3 %>
     <%= f.label :Thesis_title %><br />
+  <!-- Artículos -->
    <% elsif (@source.ref_type == 4) || (@source.ref_type == 5) || (@source.ref_type == 6) %>
     <%= f.label :Article_title %><br />
+  <!-- Referencia electrónica -->
    <% else @source.ref_type == 7 %>
 -    <%= f.label :Document_title %><br />
    <% end %>    
@@ -51,24 +57,38 @@
   
   <div class="field">
     <%= f.label :Publication_date %><br />
-    <%= f.text_field :pub_year, :size => '4', :required => 'false', :placeholder => 'yyyy', :pattern => '(?:(17|18|19|20)[0-9]{2})'%>
-    <%= f.text_field :pub_month, :size => '2', :required => 'false', :placeholder => 'mm', :pattern => '(?:0[1-9]|1[0-2])'%>
-    <%= f.text_field :pub_day, :size => '2', :required => 'false', :placeholder => 'dd', :pattern => '(?:0[1-9]|1[0-9]|2[0-9])'%>
+    <%= f.text_field :pub_year, :size => '4', :placeholder => 'yyyy', :pattern => '(?:(17|18|19|20)[0-9]{2})'%>
+    <%= f.text_field :pub_month, :size => '2', :placeholder => 'mm', :pattern => '(?:0[1-9]|1[0-2])'%>
+    <%= f.text_field :pub_day, :size => '2', :placeholder => 'dd', :pattern => '(?:0[1-9]|1[0-9]|2[0-9])'%>
   </div> 
 
-<% if (@source.ref_type == 1) || (@source.ref_type == 2) || (@source.ref_type == 3) %>
+<% if (@source.ref_type == 1) || (@source.ref_type == 2) %>
   <div class="field">
     <%= f.label :Edition %><br />
-    <%= f.text_field :edition, :required => true, :placeholder => 'First Edition' %>
+    <%= f.text_field :edition, :required => true, :placeholder => 'Third Edition' %>
   </div>
 
   <div class="field">
     <%= f.label :Publication_house %><br />
-    <%= f.text_field :pub_house, :required => true, :placeholder => 'Editorial Costa Rica' %>
+    <%= f.text_field :pub_house, :required => true, :placeholder => 'Penguin Editorial' %>
   </div>
   <div class="field">
     <%= f.label :Publication_place %><br />
     <%= f.text_field :pub_place, :required => false, :placeholder => 'San José, Costa Rica' %>
+  </div>
+<% end %>
+
+<% if (@source.ref_type == 3) %>
+  <div class="field">
+    <%= f.label :Publication_place %><br />
+    <%= f.text_field :pub_place, :required => true, :placeholder => 'Universidad Monterrey' %>
+  </div>
+<% end %>
+
+<% if (@source.ref_type == 2) %>
+  <div class="field">
+    <%= f.label :Pages %><br />
+    <%= f.text_field :pages, :required => true, :placeholder => '112-180' %>
   </div>
 <% end %>
 
@@ -91,9 +111,9 @@
 
   <div class="field">
     <%= f.label :Reference_date %><br />
-    <%= f.text_field :ref_year, :size => '4', :required => 'false', :placeholder => 'yyyy', :pattern => '(?:(19|20)[0-9]{2})'%>
-    <%= f.text_field :ref_month, :size => '2', :required => 'false', :placeholder => 'mm', :pattern => '(?:0[1-9]|1[0-2])'%>
-    <%= f.text_field :ref_day, :size => '2', :required => 'false', :placeholder => 'dd', :pattern => '(?:0[1-9]|1[0-9]|2[0-9])'%>
+    <%= f.text_field :ref_year, :size => '4', :required => 'true', :placeholder => 'yyyy', :pattern => '(?:(19|20)[0-9]{2})'%>
+    <%= f.text_field :ref_month, :size => '2', :required => 'true', :placeholder => 'mm', :pattern => '(?:0[1-9]|1[0-2])'%>
+    <%= f.text_field :ref_day, :size => '2', :required => 'true', :placeholder => 'dd', :pattern => '(?:0[1-9]|1[0-9]|2[0-9])'%>
   </div>
  
 <% if @source.ref_type == 7  %> 
@@ -104,8 +124,11 @@
 <% end %>
 
 <div class="field">
-    <%= f.label :Usuario %><br />
+
     <%= f.hidden_field :user_id,  :value => @userId %>
+</div><div class="field">
+
+    <%= f.hidden_field :ref_type,  :value => @ref_type %>
 </div>
 
 

@@ -8,6 +8,7 @@ class SourcesController < ApplicationController
     @sources = Source.where(["user_id = ?", session[:user_id]]).all
     respond_to do |format|
       format.html # index.html.erb
+		#para generar un archivo .pdf      
       format.pdf do
             render :pdf => "APA References",
                    :template => 'sources/index.html.erb'
@@ -25,6 +26,7 @@ class SourcesController < ApplicationController
     if (@source.user_id == session[:user_id])
        respond_to do |format|
          format.html # show.html.erb
+         #para generar un archivo .pdf
          format.pdf do
             render :pdf => "APA References",
                    :template => 'sources/show.html.erb'
@@ -44,6 +46,7 @@ class SourcesController < ApplicationController
     @source = Source.new
     @userId = session[:user_id]
     @source.ref_type = params[:type]
+    @ref_type = params[:type]
 
     respond_to do |format|
       format.html # new.html.erb
@@ -69,6 +72,19 @@ class SourcesController < ApplicationController
   def create
     @source = Source.new(params[:source])
 
+	@month = Source.mes(@source.pub_month)
+    if (@source.pub_year !=  nil and @source.pub_month != nil and @source.pub_day == 1)
+    		@source.pub_date = "#{@month} #{@source.pub_day} #{@source.pub_year}"
+    elsif (@source.pub_year != nil and (@source.pub_month != nil  or @source.pub_day == nil))
+    		@source.pub_date = "#{@month} #{@source.pub_year}"
+    elsif (@source.pub_year != nil and (@source.pub_month == nil  or @source.pub_day == nil))
+    		@source.pub_date = "#{@source.pub_year}"    
+    else
+    		@source.pub_date = "s.f"
+    end
+    @month2 = Source.mes(@source.ref_month)
+    @source.ref_date = "#{@month2} #{@source.ref_day} #{@source.ref_year}"
+    
     respond_to do |format|
       if @source.save
         format.html { redirect_to @source, notice: 'Source was successfully created.' }

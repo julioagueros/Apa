@@ -1,75 +1,39 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <b>Author:</b>
-  <%= @source.author %>
+<!-- Libros-->
+<% if @source.ref_type == 1 %>
+	<% if @source.pub_place.blank?%>
+		<%= @source.author %> (<%= @source.pub_date %>). <i><%= @source.title %></i>. <%= @source.edition %>. <%= @source.pub_house %>
+	<% else %>
+		<%= @source.author %> (<%= @source.pub_date %>). <i><%= @source.title %></i>. <%= @source.edition %>. <%= @source.pub_place %>: <%= @source.pub_house %>
+	<% end %>
+<!-- Capítulos de libros-->
+<% elsif @source.ref_type == 2 %>	
+	<% if @source.pub_place.blank? %>
+		<%= @source.author %> (<%= @source.pub_date %>). <%= @source.title2 %>. <i><%= @source.title %></i>. (p <%= @source.pages %>). <%= @source.edition %>. <%= @source.pub_house %>
+	<% else %>
+		<%= @source.author %> (<%= @source.pub_date %>). <%= @source.title2 %>. <i><%= @source.title %></i>. (p <%= @source.pages %>). <%= @source.edition %>. <%= @source.pub_place %>: <%= @source.pub_house %>	
+	<% end %>
+<!-- Tesis-->
+<% elsif @source.ref_type == 3 %>	
+	<%= @source.author %> (<%= @source.pub_date %>). <i><%= @source.title %></i>. <%= @source.title2 %>. <%= @source.pub_place %>
+<!-- Artículos-->
+<% elsif @source.ref_type == 4 || @source.ref_type == 5 || @source.ref_type == 6 %>	
+	<% if @source.volume.blank? && @source.magazine_num.blank? %>
+		<%= @source.author %> (<%= @source.pub_date %>). <%= @source.title %>. <i><%= @source.title2 %></i>. (p <%= @source.pages %>)
+	<% elsif @source.volume.blank? == false && @source.magazine_num.blank? == false%>
+		<%= @source.author %> (<%= @source.pub_date %>). <%= @source.title %>. <i><%= @source.title2 %></i>. <%= @source.volume %>. <%= @source.magazine_num %>.(p <%= @source.pages %>)	
+	<% elsif  @source.volume.blank?  %>
+		<%= @source.author %> (<%= @source.pub_date %>). <%= @source.title %>. <i><%= @source.title2 %></i>. <%= @source.magazine_num %>. (p <%= @source.pages %>). 
+	<% else %>
+		<%= @source.author %> (<%= @source.pub_date %>). <%= @source.title %>. <i><%= @source.title2 %></i>. <%= @source.volume %>. (p <%= @source.pages %>)
+	<% end %>	
+<!-- Web-->		
+<% else %>
+	<%= @source.author %> (<%= @source.pub_date %>). <i><%= @source.title %></i>. <%= @source.title2 %>. Retrieved <%= @source.ref_date %>. From <%= @source.website %>
+<% end %>
 </p>
-
-<p>
-  <b>Pub date:</b>
-  <%= @source.pub_date %>
-</p>
-
-<p>
-  <b>Ref date:</b>
-  <%= @source.ref_date %>
-</p>
-
-<p>
-  <b>Title:</b>
-  <%= @source.title %>
-</p>
-
-<p>
-  <b>Title2:</b>
-  <%= @source.title2 %>
-</p>
-
-<p>
-  <b>Website:</b>
-  <%= @source.website %>
-</p>
-
-<p>
-  <b>Volume:</b>
-  <%= @source.volume %>
-</p>
-
-<p>
-  <b>Edition:</b>
-  <%= @source.edition %>
-</p>
-
-<p>
-  <b>Pub place:</b>
-  <%= @source.pub_place %>
-</p>
-
-<p>
-  <b>Pub house:</b>
-  <%= @source.pub_house %>
-</p>
-
-<p>
-  <b>Magazine num:</b>
-  <%= @source.magazine_num %>
-</p>
-
-<p>
-  <b>Pages:</b>
-  <%= @source.pages %>
-</p>
-
-<p>
-  <b>Ref type:</b>
-  <%= @source.ref_type %>
-</p>
-
-<p>
-  <b>User:</b>
-  <%= @source.user %>
-</p>
-
 
 <%= link_to 'Edit', edit_source_path(@source) %> |
 <%= link_to 'Back', sources_path %>
